@@ -5,35 +5,42 @@ using namespace std;
 
 class Song{
 private:
+ int id;
  string title;
  string artist;
  string lyrics;
 
 public:
-    Song(const string& _title, const string& _artist, const string& _lyrics)
-    : title(_title), artist(_artist), lyrics(_lyrics) {};
+    Song(int _id, const string& _title, const string& _artist, const string& _lyrics)
+    : id(_id),title(_title), artist(_artist), lyrics(_lyrics) {};
 
-    string getTitle(){
+    int getId() const{
+    return id;
+    };
+    void setId(int _id){
+        id = _id;
+    }
+
+    string getTitle() const{
         return title;   
     };
-    void setTitle(string _title){
+    void setTitle(const string& _title){
         title = _title;
     };
 
-    string getArtist(){
+    string getArtist() const{
     return artist;
     };
-    void setArtist(string _artist){
+    void setArtist(const string& _artist){
         artist = _artist;
     };
     
-    string getLyrics(){
+    string getLyrics() const{
     return lyrics;
     };
-    void setLyrics(string _lyrics){
+    void setLyrics(const string& _lyrics){
     lyrics = _lyrics;
     };
-
 };
 
 int main() {
