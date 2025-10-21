@@ -17,39 +17,36 @@ public:
     int getId() const{
     return id;
     };
-    void setId(int _id){
-        id = _id;
-    }
 
     string getTitle() const{
         return title;   
-    };
-    void setTitle(const string& _title){
-        title = _title;
     };
 
     string getArtist() const{
     return artist;
     };
-    void setArtist(const string& _artist){
-        artist = _artist;
-    };
-    
+  
     string getLyrics() const{
     return lyrics;
     };
-    void setLyrics(const string& _lyrics){
-    lyrics = _lyrics;
-    };
 };
 
-int main() {
-    // TODO: Définir ta structure Song ici
-    
+int main() {    
     // TODO: Créer un vector pour stocker tes chansons
-    
-    // TODO: Ajouter 5-10 chansons manuellement
-    
+
+
+    vector<Song> songs = {
+        {1, "Ultimate", "Denzel Curry", "I am the one, don't weigh a ton, don't need a gun to get respect up on the street..."},
+        {2, "Clout Cobain", "Denzel Curry", "I just wanna feel myself, you want me to kill myself..."},
+        {3, "Walkin", "Denzel Curry", "Walkin' with my back to the sun, keep my head to the sky..."},
+        {4, "X-Wing", "Denzel Curry", "If I make that bitch an inch taller Then I upgrade to a Skywalker"},
+        {5, "Sumo", "Denzel Curry", "Pocket too big, they sumo, tell me who the hottest motherfucker that you know"},
+        {6, "Ricky", "Denzel Curry", "My daddy said, 'Trust no man but your brothers...'"},
+        {7, "Hot Ones", "Denzel Curry", "Got a new chain, what you think I brought the strap for?"},
+        {8, "Still in the Paint", "Denzel Curry ft.Bktherula, LAZER DIM 700", "I hang in the trenches with my partners countin' skrilla"},
+        {9, "Wish", "Denzel Curry ft. Kiddo Marv", "And I keep a Glock, nah, it's a Glock .40"},
+        {10, "Speedboat", "Denzel Curry", "Didn't go to college for a free throw"},  
+    };    
     // TODO: Afficher un message de bienvenue
     
     // TODO: Boucle de jeu principale
