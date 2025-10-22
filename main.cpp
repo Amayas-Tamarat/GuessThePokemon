@@ -1,6 +1,12 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <random>
+#include <cstdlib>
+#include <ctime>
+#include <algorithm>
+#include <cctype> 
+
 using namespace std;
 
 class Song{
@@ -28,14 +34,24 @@ public:
   
     string getLyrics() const{
     return lyrics;
-    };
+    };  
 };
 
-int main() {    
-    // TODO: Créer un vector pour stocker tes chansons
+string normalizeString(const string& str) {
+string stringNormalisee = "";
+for (char c : str){
+    char lowercaseChar = tolower(c);
+    if (isalnum(lowercaseChar)) {
+        stringNormalisee += lowercaseChar;
+    }
+};
+return stringNormalisee;
+}
 
 
-    vector<Song> songs = {
+int main() {  
+srand(time(NULL));
+vector<Song> songs = {
         {1, "Ultimate", "Denzel Curry", "I am the one, don't weigh a ton, don't need a gun to get respect up on the street..."},
         {2, "Clout Cobain", "Denzel Curry", "I just wanna feel myself, you want me to kill myself..."},
         {3, "Walkin", "Denzel Curry", "Walkin' with my back to the sun, keep my head to the sky..."},
@@ -48,10 +64,42 @@ int main() {
         {10, "Speedboat", "Denzel Curry", "Didn't go to college for a free throw"},  
     };    
     // TODO: Afficher un message de bienvenue
+    cout << "================================" << endl;
+    cout << "  GUESS THE DENZEL SONG " << endl;
+    cout << "================================" << endl;
     
     // TODO: Boucle de jeu principale
-    
+    int score = 0;
+    string playerAnswer = "";
+    vector<int> availableSongs;
+    for (size_t i = 0; i< songs.size(); i++){
+        availableSongs.push_back(i);
+    }
+
+
+    for (int round = 1; round <= 5; round++){
+        cout << "Round " << round << "/5" <<endl;
+        int randomSongIndex = rand() % availableSongs.size();
+        int index = availableSongs[randomSongIndex];
+        availableSongs.erase(availableSongs.begin() + randomSongIndex);
+        Song currentSong = songs[index];
+        cout << currentSong.getLyrics() << endl;
+        cout << "Please, enter the song title: ";
+        getline (std::cin,playerAnswer);
+        string normalizedPlayerAnswer = normalizeString(playerAnswer);
+        if (normalizeString(currentSong.getTitle()) == normalizedPlayerAnswer){
+            score += 1 ;
+            cout << normalizedPlayerAnswer << endl;
+        }else if(normalizedPlayerAnswer == ""){
+            score -= 1;
+        }else{
+            score -= 2;
+        }
+    }
     // TODO: Afficher le score final
+    cout << "\n=== Partie fini ===" << endl;
+    cout << "Score final : " << score << endl;
+    
     
     return 0;
 }
