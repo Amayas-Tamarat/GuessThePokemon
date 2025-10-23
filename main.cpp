@@ -72,12 +72,10 @@ vector<Song> songs = {
     int score = 0;
     string playerAnswer = "";
     vector<int> availableSongs;
-    for (size_t i = 0; i< songs.size(); i++){
+    for (size_t  i = 0; i< songs.size(); i++){
         availableSongs.push_back(i);
     }
-
-
-    for (int round = 1; round <= 5; round++){
+    for (int round = 1; round < 6; round++){
         cout << "Round " << round << "/5" <<endl;
         int randomSongIndex = rand() % availableSongs.size();
         int index = availableSongs[randomSongIndex];
