@@ -16,7 +16,7 @@ private:
 public:
      Pokemon(int _id, int _height, int _weight, 
             const std::string& _name,
-            const std::vector<std::string>& _abilities,  // Changé !
+            const std::vector<std::string>& _abilities,
             const std::vector<std::string>& _types,
             const std::vector<std::string>& _moves)
         : id(_id), name(_name), height(_height), weight(_weight), 
