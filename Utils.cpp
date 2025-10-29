@@ -1,6 +1,5 @@
 #include "Utils.h"
 #include <cctype>
-#include <iostream>
 using namespace std;
 
 string normalizeString(const string& str) {
@@ -10,6 +9,6 @@ for (char c : str){
     if (isalnum(lowercaseChar)) {
         stringNormalisee += lowercaseChar;
     }
-};
+}
 return stringNormalisee;
 }
